@@ -18,7 +18,7 @@ const AddTask = () => {
             <div className='w-full lg:w-4/5'>
 
                 <div className=''>
-                    <h1 className='text-2xl text-center'>Hey <span className='text-amber-600 font-semibold'>{user?.displayName}</span>, add Your task here!</h1>
+                    <h1 className='text-2xl text-center'>Hey <span className='text-amber-500 font-semibold'>{user?.displayName}</span>, add Your task here!</h1>
                     <div className="shadow-lg p-4 lg:p-8 mx-1 lg:mx-auto w-full lg:w-5/6 rounded-xl my-2 lg:my-5 border text-dark bg-white">
                         <h2 className="text-xl text-start font-semibold ">
                             <span className='flex items-center'><FcInfo className='mx-2 text-lg' /> Please fill up the form</span>
