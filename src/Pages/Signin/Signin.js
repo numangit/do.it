@@ -48,7 +48,7 @@ const Signin = () => {
                     </div>
                     <div className="form-control w-full ">
                         <label className="label"><span className="">Email :</span></label>
-                        <input {...register("email", { required: "Email Address is required" })} type="email" className="input input-bordered w-full dark:text-slate-900" />
+                        <input {...register("email", { required: "Email Address is required" })} type="email" className="input input-bordered w-full dark:text-slate-900" placeholder='Demo: test@doit.com' />
                         {errors.email && <p className="text-red-500 text-sm" role="alert">{errors.email?.message}</p>}
                     </div>
                     <div className="form-control w-full">
@@ -64,7 +64,9 @@ const Signin = () => {
                                     required: "Password is required",
                                     minLength: { value: 6, message: 'Password must be 6 characters or longer' }
                                 })}
-                                type={passwordShown ? "text" : "password"} className="input input-bordered w-full  dark:text-slate-900" />
+                                type={passwordShown ? "text" : "password"}
+                                className="input input-bordered w-full  dark:text-slate-900"
+                                placeholder='Demo: 123123' />
 
                             <div onClick={togglePassword}
                                 className="absolute inset-y-0 right-0 pr-3 flex items-center dark:text-slate-900 ">
