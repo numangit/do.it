@@ -1,33 +1,109 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
+    //scroll at the top after page is rendered
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    //handler to handle signup function
+    const handleSignUp = data => {
+        console.log(data)
+        setRegisterError('');
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        console.log('Profile Updated');
+                        // toast.success('Welcome!');
+                        navigate(from, { replace: true });
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+                // setLoading(false);//this might caught problem (keep in mind)
+            })
+            .catch(error => {
+                console.log(error)
+                setRegisterError(error.message)
+            });
+    }
+
+    //show and hide password
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
+
     return (
         <div className='mt-20 lg:h-screen flex justify-center items-center'>
-            <div className='w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+            <div className="shadow-lg p-10 lg:mx-auto w-full lg:w-96 rounded-xl my-5 lg:my-24 border text-dark">
                 <h2 className="text-3xl text-center font-semibold mb-3">Register</h2>
                 <p className='text-center text-slate-400'>Join us!</p>
-                <form>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Your email" required />
+                <form onSubmit={handleSubmit(handleSignUp)}>
+                    <div>
+                        {registerError && <p className='text-red-600'>{registerError.slice(22, -2)}</p>}
                     </div>
-                    <div class="mb-6">
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                        <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    <div className="form-control w-full ">
+                        <label className="label"><span className="">Name :</span></label>
+                        <input {...register("name",
+                            {//name validation and error handling 
+                                required: "Name is required"
+                            })}
+                            type="text" className="input input-bordered w-full " />
+                        {errors.name && <p className="text-red-500 text-sm" role="alert">{errors.name?.message}</p>}
                     </div>
-                    <div class="mb-6">
-                        <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repeat password</label>
-                        <input type="password" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    <div className="form-control w-full ">
+                        <label className="label"><span className="">Email :</span></label>
+                        <input {...register("email",
+                            {//email validation and error handling 
+                                required: "Email Address is required"
+                            })}
+                            type="email" className="input input-bordered w-full" />
+                        {errors.email && <p className="text-red-500 text-sm" role="alert">{errors.email?.message}</p>}
                     </div>
-                    <div class="flex items-start mb-6">
-                        <div class="flex items-center h-5">
-                            <input id="terms" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+                    <div className="form-control w-full">
+                        <label className="label"><span className="label-text">Password :</span></label>
+                        <div className='relative'>
+                            <input {...register("password",
+                                {//password validations and error handling 
+                                    required: "Password is required",
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Password must be 6 characters or longer'
+                                    }
+                                })}
+                                type={passwordShown ? "text" : "password"} className="input input-bordered w-full " />
+                            <div onClick={togglePassword}
+                                className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <AiFillEye
+                                    className={passwordShown ? 'hidden' : 'block'} />
+                                <AiFillEyeInvisible
+                                    className={passwordShown ? 'block' : 'hidden'} />
+                            </div>
                         </div>
-                        <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the terms and conditions</label>
+                        {errors.password && <p className="text-red-500 text-sm" role="alert">{errors.password?.message}</p>}
                     </div>
-                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
+                    <input className='btn bg-black text-white rounded-md p-2 w-full mt-3' value="Register" type="submit" />
                 </form>
-
+                <p className="text-sm mt-2 text-center">Already have an account? <Link className="underline" to="/signin">Sign In</Link></p>
             </div>
         </div>
     );
