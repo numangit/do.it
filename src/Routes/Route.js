@@ -40,8 +40,9 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/taskDetails',
-                element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>
+                path: '/taskDetails/:id',
+                element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/myTask/${params.id}`)
             },
             {
                 path: '/myTasks/edit',

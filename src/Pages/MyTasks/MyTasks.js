@@ -70,7 +70,7 @@ const MyTasks = () => {
                                 </div>
                                 {/* buttons */}
                                 <div className="inline-flex justify-center w-full " role="group">
-                                    <Link to="/taskDetails">
+                                    <Link to={`/taskDetails/${task?._id}`}>
                                         <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white flex items-center">
                                             <CgDetailsMore />&#160;Details
                                         </button>

@@ -41,7 +41,7 @@ const AddTask = () => {
                         taskName: data.taskName,
                         taskDescription: data.taskDescription,
                         userEmail: user.email,
-                        complete: false,
+                        completed: false,
                         postedDate: new Date()
                     }
                     console.log(taskDetails);
