@@ -13,6 +13,67 @@ const AddTask = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    //upload image to thirparty hosting service
+    const imageAPIKey = process.env.REACT_APP_imgbb_key;
+
+    //function to handle form submit  
+    const handleAddTask = data => {
+        console.log(data)
+        // setLoading(true)
+        // setFormError('');
+        // //get image data from form and upload to image bb
+        // const image = data.productImage[0];
+        // const formData = new FormData();
+        // formData.append('image', image);
+        // const url = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`
+        // fetch(url, {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        //     .then(res => res.json())
+        //     .then(imgData => {
+        //         //sending the data from form to end point to save the data in data base
+        //         if (imgData.success) {
+        //             console.log(imgData.data.url);
+        //             const productDetails = {
+        //                 productImage: imgData.data.url,
+        //                 productName: data.productName,
+        //                 originalPrice: data.originalPrice,
+        //                 resalePrice: data.resalePrice,
+        //                 yearsOfPurchase: data.yearsOfPurchase,
+        //                 yearsOfUse: data.yearsOfUse,
+        //                 productCategory: data.productCategory,
+        //                 productCondition: data.productCondition,
+        //                 productDescription: data.productDescription,
+        //                 sellerName: user.displayName,
+        //                 sellerEmail: user.email,
+        //                 sellerLocation: data.sellerLocation,
+        //                 sellerPhone: data.sellerPhone,
+        //                 onStock: true,
+        //                 paid: false,
+        //                 postedDate: new Date()
+        //             }
+        //             console.log(productDetails);
+        //             // save products information to the database
+        //             fetch('https://woodpecker12-server.vercel.app/products', {
+        //                 method: 'POST',
+        //                 headers: {
+        //                     'content-type': 'application/json',
+        //                     authorization: `bearer ${localStorage.getItem('woodpecker-token')}`
+        //                 },
+        //                 body: JSON.stringify(productDetails)
+        //             })
+        //                 .then(res => res.json())
+        //                 .then(result => {
+        //                     console.log(result);
+        //                     setLoading(false);
+        //                     toast.success("Product added successfully");
+        //                     navigate('/dashboard/myproducts');
+        //                 })
+        //         }
+        //     })
+    }
+
     return (
         <div className='lg:h-screen flex justify-center items-center'>
             <div className='w-full lg:w-4/5'>
@@ -24,67 +85,39 @@ const AddTask = () => {
                             <span className='flex items-center'><FcInfo className='mx-2 text-lg' /> Please fill up the form</span>
                         </h2>
                         <div className="divider my-1"></div>
-                        <form onSubmit="{handleSubmit(handleAddAProduct)}">
+                        <form onSubmit={handleSubmit(handleAddTask)}>
 
                             {/* name and image  */}
                             <div className="grid grid-cols-2 gap-5 my-3">
                                 <div className="form-control w-full flex flex-wrap">
                                     <div className='w-full'>
-                                        <label for="small-input" className="block mb-2 text-sm font-medium w-1/2 text-gray-900 dark:text-white">Small input</label>
-                                        <input type="text" id="small-input" className="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <label htmlFor="small-input" className="block mb-2 text-sm font-medium w-1/2 text-gray-900 dark:text-white">Task Name</label>
+                                        <input
+                                            {...register("taskName", { required: "task name is required" })}
+                                            type="text" id="small-input" className="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     </div>
-                                    {errors.productName && <p className="text-red-500 text-xs" role="alert">{errors.productName?.message}</p>}
+                                    {errors.taskName && <p className="text-red-500 text-xs" role="alert">{errors.taskName?.message}</p>}
                                 </div>
                                 <div>
-                                    {/* <label className="w-full shadow-sm mx-auto flex items-center p-1 bg-white text-black rounded tracking-wide border cursor-pointer">
-                                        <div className='mx-auto flex items-center'>
-                                            <IoMdImages className='mx-2' />
-                                            <span className="text-xs font-bold">Product image</span>
-                                        </div>
-                                        <input type="file"
-                                            {...register("productImage", { required: "Photo is Required" })}
-                                            className="hidden" />
-                                    </label>
-                                    {errors.productImage && <p className='text-red-500 text-xs'>{errors.productImage.message}</p>} */}
-
-
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
-                                    <input className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
-                                    {/* <div className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile picture is useful to confirm your are logged into your account</div> */}
-
+                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Upload Photo</label>
+                                    <input
+                                        {...register("taskImage", { required: "Photo is Required" })}
+                                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
+                                    {errors.taskImage && <p className='text-red-500 text-xs'>{errors.taskImage.message}</p>}
                                 </div>
                             </div>
                             {/* description */}
-                            {/* <div className="w-full my-3">
-                                <textarea className="textarea textarea-bordered w-full focus:border-none" placeholder="Product description*"
-                                    {...register("productDescription", { required: "Description must be filled" })}></textarea>
-                                {errors.productDescription && <p className="text-red-500 text-xs" role="alert">{errors.productDescription?.message}</p>}
-                            </div> */}
+                            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Description</label>
+                            <textarea
+                                {...register("taskDescription", { required: "Description must be filled" })}
+                                id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Task description">
 
-                            <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                            <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                            </textarea>
+                            {errors.taskDescription && <p className="text-red-500 text-xs" role="alert">{errors.taskDescription?.message}</p>}
 
-                            {/* {
-                                loading ?
-                                    <button className='btn btn-accent w-full' type="submit">
-                                        <TailSpin
-                                            height="30"
-                                            width="30"
-                                            color="#2196f3"
-                                            ariaLabel="tail-spin-loading"
-                                            radius="1"
-                                            wrapperStyle={{}}
-                                            wrapperclassName=""
-                                            visible={true}
-                                        />
-                                        <span className='mx-1'>Add Product</span>
-                                    </button>
-                                    : */}
+
                             <input className='mt-3 w-full bg-black text-white p-2 rounded-md' value="Add Task" type="submit" />
-                            {/* <input type="submit" className="w-full text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 my-4 "
-                                value="Add Task" /> */}
 
-                            {/* } */}
                         </form>
 
                     </div>
