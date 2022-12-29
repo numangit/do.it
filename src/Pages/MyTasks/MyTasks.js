@@ -13,7 +13,7 @@ const MyTasks = () => {
 
     //api to get products by user email
     const { data: myTasks = [], refetch } = useQuery({
-        queryKey: ['myProducts', user?.email],
+        queryKey: ['myTasks', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/myTasks?email=${user?.email}`);
             const data = await res.json();
@@ -22,7 +22,21 @@ const MyTasks = () => {
         }
     })
 
-    //function to delete product
+    //function to complete task
+    const handleTaskComplete = (id) => {
+        fetch(`http://localhost:5000/myTasks/completed/${id}`, {
+            method: 'PUT',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Congratulations, Task Completed!')
+                    refetch();
+                }
+            })
+    }
+
+    //function to delete task
     const handleDeleteTask = id => {
         fetch(`http://localhost:5000/myTasks/${id}`, {
             method: 'DELETE'
@@ -62,7 +76,9 @@ const MyTasks = () => {
                                         </button>
                                     </Link>
                                     <Link to="/completed">
-                                        <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-green-500 focus:z-10 focus:ring-2 focus:ring-green-500 focus:text-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-green-500 dark:focus:text-white flex items-center">
+                                        <button
+                                            onClick={() => handleTaskComplete(task._id)}
+                                            type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-green-500 focus:z-10 focus:ring-2 focus:ring-green-500 focus:text-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-green-500 dark:focus:text-white flex items-center">
                                             <GoCheck />&#160;complete
                                         </button>
                                     </Link>
