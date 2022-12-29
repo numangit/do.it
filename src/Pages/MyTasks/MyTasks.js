@@ -66,7 +66,7 @@ const MyTasks = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 lg:p-10'>
                     {
                         myTasks?.map(task =>
-                            <div key={task?._id} className="max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <div key={task?._id} className="max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 relative">
                                 {/* name and description */}
                                 <div className='p-3 text-left'>
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{task?.taskName}</h5>
@@ -74,7 +74,7 @@ const MyTasks = () => {
                                         {task?.taskDescription}
                                     </p>
                                 </div>
-                                <div className='flex justify-end my-1'>
+                                <div className='flex justify-end my-1 absolute -top-4 right-0'>
                                     {
                                         task?.completed
                                             ? <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900 flex items-center">
@@ -99,7 +99,7 @@ const MyTasks = () => {
                                             <GoCheck />&#160;complete
                                         </button>
                                     </Link>
-                                    <Link to="/myTasks/edit">
+                                    <Link to={`/myTasks/edit/${task?._id}`}>
                                         <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white border-l border-t border-b border-gray-200 hover:bg-gray-100 hover:text-orange-500 focus:z-10 focus:ring-2 focus:ring-orange-500 focus:text-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-orange-500 dark:focus:text-white flex items-center">
                                             <GrEdit />&#160;Edit
                                         </button>
