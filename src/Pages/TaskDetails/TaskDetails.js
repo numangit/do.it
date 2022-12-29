@@ -19,10 +19,11 @@ const TaskDetails = () => {
                     alt="" />
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{taskDetails?.taskName}</h5> */}
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 flex items-center ">
-                        <span className='font-semibold text-sm'>Description:</span>&nbsp;{taskDetails?.taskDescription}
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 md:flex">
+                        <p className='font-semibold text-sm'>Description: </p>&nbsp;
+                        {taskDetails?.taskDescription}
                     </p>
-                    <div className='flex justify-around'>
+                    <div className='md:flex justify-around'>
                         <span className='flex items-center'>
                             <span className='font-semibold text-sm'>Posted on:</span>&nbsp;
                             {/* < />&#160;Date:{taskDetails?.postedDate} */}
