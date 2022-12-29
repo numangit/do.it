@@ -1,18 +1,32 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner';
-import { AuthContext } from '../../Contexts/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
 
 const Update = () => {
     const taskDetails = useLoaderData();
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const [formError, setFormError] = useState('');
     const [loading, setLoading] = useState(false);
 
     //function to handle form submit  
     const handleAddTask = data => {
         console.log(data)
+        setLoading(true);
+        fetch(`http://localhost:5000/myTasks/${taskDetails._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    setLoading(false);
+                    toast.success("Task updated successfully")
+                }
+            })
 
     }
 
@@ -24,7 +38,6 @@ const Update = () => {
                     <span className='text-amber-500 font-semibold'>Update</span> task details.
                 </h1>
                 <div className="shadow-lg p-4 lg:p-8 mx-1 lg:mx-auto w-full lg:w-5/6 rounded-xl my-2 lg:my-5 border text-dark bg-white">
-                    {/* <div className="divider my-1"></div> */}
 
                     <form onSubmit={handleSubmit(handleAddTask)}>
 
