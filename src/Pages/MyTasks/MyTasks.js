@@ -6,6 +6,7 @@ import { CgDetailsMore } from 'react-icons/cg';
 import { GoCheck } from 'react-icons/go';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
+import { toast } from 'react-hot-toast';
 
 const MyTasks = () => {
     const { user } = useContext(AuthContext);
@@ -21,10 +22,26 @@ const MyTasks = () => {
         }
     })
 
+    //function to delete product
+    const handleDeleteTask = id => {
+        fetch(`http://localhost:5000/myTasks/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success("Task deleted successfully")
+                }
+            })
+    }
 
     return (
         <div className='mt-20 lg:h-screen '>
             <div>
+                <h1 className='text-2xl text-center p-4'>
+                    <span className='text-amber-500 font-semibold'>Manage</span> your task.
+                </h1>
                 {/* card */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 lg:p-10'>
                     {
@@ -54,7 +71,9 @@ const MyTasks = () => {
                                             <GrEdit />&#160;Edit
                                         </button>
                                     </Link>
-                                    <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-red-500 focus:z-10 focus:ring-2 focus:ring-red-500 focus:text-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-red-500 dark:focus:text-white flex items-center">
+                                    <button
+                                        onClick={() => handleDeleteTask(task._id)}
+                                        type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-red-500 focus:z-10 focus:ring-2 focus:ring-red-500 focus:text-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-red-500 dark:focus:text-white flex items-center">
                                         <AiFillDelete />&#160;Delete
                                     </button>
                                 </div>
