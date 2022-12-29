@@ -29,9 +29,11 @@ const MyTasks = () => {
                                     <GoCheck />&#160;complete
                                 </button>
                             </Link>
-                            <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white border-l border-t border-b border-gray-200 hover:bg-gray-100 hover:text-orange-500 focus:z-10 focus:ring-2 focus:ring-orange-500 focus:text-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-orange-500 dark:focus:text-white flex items-center">
-                                <GrEdit />&#160;Edit
-                            </button>
+                            <Link to="/myTasks/edit">
+                                <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white border-l border-t border-b border-gray-200 hover:bg-gray-100 hover:text-orange-500 focus:z-10 focus:ring-2 focus:ring-orange-500 focus:text-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-orange-500 dark:focus:text-white flex items-center">
+                                    <GrEdit />&#160;Edit
+                                </button>
+                            </Link>
                             <button type="button" className=" py-2 px-2 text-sm font-semibold text-gray-600 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-red-500 focus:z-10 focus:ring-2 focus:ring-red-500 focus:text-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-red-500 dark:focus:text-white flex items-center">
                                 <AiFillDelete />&#160;Delete
                             </button>

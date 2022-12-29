@@ -68,7 +68,7 @@ const AddTask = () => {
         //                     console.log(result);
         //                     setLoading(false);
         //                     toast.success("Product added successfully");
-        //                     navigate('/dashboard/myproducts');
+        //                     navigate('/myTasks');
         //                 })
         //         }
         //     })
