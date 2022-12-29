@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { GrEdit } from 'react-icons/gr';
 import { AiFillDelete } from 'react-icons/ai';
 import { CgDetailsMore } from 'react-icons/cg';
+import { BsFillHandThumbsUpFill, BsFillHandThumbsDownFill } from 'react-icons/bs';
 import { GoCheck } from 'react-icons/go';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
@@ -67,6 +68,17 @@ const MyTasks = () => {
                                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                                         {task?.taskDescription}
                                     </p>
+                                </div>
+                                <div className='flex justify-end my-1'>
+                                    {
+                                        task?.completed
+                                            ? <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900 flex items-center">
+                                                <BsFillHandThumbsUpFill />&#160;Completed
+                                            </span>
+                                            : <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900 flex items-center">
+                                                <BsFillHandThumbsDownFill />&#160;Not Complete
+                                            </span>
+                                    }
                                 </div>
                                 {/* buttons */}
                                 <div className="inline-flex justify-center w-full " role="group">
