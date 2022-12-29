@@ -55,7 +55,12 @@ const MyTasks = () => {
         <div className='mt-20 lg:h-screen '>
             <div>
                 <h1 className='text-2xl text-center p-4'>
-                    <span className='text-amber-500 font-semibold'>Manage</span> your task.
+                    <span className='text-amber-500 font-semibold'>Manage</span> your
+                    {
+                        myTasks?.length > 0
+                            ? " tasks."
+                            : " task."
+                    }
                 </h1>
                 {/* card */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 lg:p-10'>
