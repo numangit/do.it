@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { FcInfo } from 'react-icons/fc';
-import { IoMdImages } from 'react-icons/io';
+// import { IoMdImages } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { ThreeDots } from 'react-loader-spinner';
 
 
 const AddTask = () => {
     const { user } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [formError, setFormError] = useState('');
+    // const [formError, setFormError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ const AddTask = () => {
     //function to handle form submit  
     const handleAddTask = data => {
         console.log(data)
-        // setLoading(true)
+        setLoading(true)
         // setFormError('');
         //get image data from form and upload to image bb
         const image = data.taskImage[0];
@@ -45,20 +46,20 @@ const AddTask = () => {
                     }
                     console.log(taskDetails);
                     // save task information to the database
-                    // fetch('http://localhost:5000/myTasks', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'content-type': 'application/json',
-                    //     },
-                    //     body: JSON.stringify(taskDetails)
-                    // })
-                    //     .then(res => res.json())
-                    //     .then(result => {
-                    //         console.log(result);
-                    //         setLoading(false);
-                    //         // toast.success("Product added successfully");
-                    //         navigate('/myTasks');
-                    //     })
+                    fetch('http://localhost:5000/myTasks', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(taskDetails)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            setLoading(false);
+                            // toast.success("Product added successfully");
+                            navigate('/myTasks');
+                        })
                 }
             })
     }
@@ -104,8 +105,26 @@ const AddTask = () => {
                             </textarea>
                             {errors.taskDescription && <p className="text-red-500 text-xs" role="alert">{errors.taskDescription?.message}</p>}
 
+                            {
+                                loading ?
+                                    <button className='mt-3 w-full bg-black text-white p-2 rounded-md flex justify-center items-center' type="submit">
 
-                            <input className='mt-3 w-full bg-black text-white p-2 rounded-md' value="Add Task" type="submit" />
+                                        <ThreeDots
+                                            height="30"
+                                            width="60"
+                                            radius="9"
+                                            color="#2196f3"
+                                            ariaLabel="three-dots-loading"
+                                            wrapperStyle={{}}
+                                            wrapperClassName=""
+                                            visible={true}
+                                        />
+                                        <span className='mx-1'>Processing</span>
+                                    </button>
+                                    :
+                                    <input className='mt-3 w-full bg-black text-white p-2 rounded-md' value="Add Task" type="submit" />
+                            }
+
 
                         </form>
 
