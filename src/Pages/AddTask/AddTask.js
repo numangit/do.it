@@ -21,57 +21,46 @@ const AddTask = () => {
         console.log(data)
         // setLoading(true)
         // setFormError('');
-        // //get image data from form and upload to image bb
-        // const image = data.productImage[0];
-        // const formData = new FormData();
-        // formData.append('image', image);
-        // const url = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`
-        // fetch(url, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(imgData => {
-        //         //sending the data from form to end point to save the data in data base
-        //         if (imgData.success) {
-        //             console.log(imgData.data.url);
-        //             const productDetails = {
-        //                 productImage: imgData.data.url,
-        //                 productName: data.productName,
-        //                 originalPrice: data.originalPrice,
-        //                 resalePrice: data.resalePrice,
-        //                 yearsOfPurchase: data.yearsOfPurchase,
-        //                 yearsOfUse: data.yearsOfUse,
-        //                 productCategory: data.productCategory,
-        //                 productCondition: data.productCondition,
-        //                 productDescription: data.productDescription,
-        //                 sellerName: user.displayName,
-        //                 sellerEmail: user.email,
-        //                 sellerLocation: data.sellerLocation,
-        //                 sellerPhone: data.sellerPhone,
-        //                 onStock: true,
-        //                 paid: false,
-        //                 postedDate: new Date()
-        //             }
-        //             console.log(productDetails);
-        //             // save products information to the database
-        //             fetch('https://woodpecker12-server.vercel.app/products', {
-        //                 method: 'POST',
-        //                 headers: {
-        //                     'content-type': 'application/json',
-        //                     authorization: `bearer ${localStorage.getItem('woodpecker-token')}`
-        //                 },
-        //                 body: JSON.stringify(productDetails)
-        //             })
-        //                 .then(res => res.json())
-        //                 .then(result => {
-        //                     console.log(result);
-        //                     setLoading(false);
-        //                     toast.success("Product added successfully");
-        //                     navigate('/myTasks');
-        //                 })
-        //         }
-        //     })
+        //get image data from form and upload to image bb
+        const image = data.taskImage[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                //sending the data from form to end point to save the data in data base
+                if (imgData.success) {
+                    console.log(imgData.data.url);
+                    const taskDetails = {
+                        taskImage: imgData.data.url,
+                        taskName: data.taskName,
+                        taskDescription: data.taskDescription,
+                        userEmail: user.email,
+                        complete: false,
+                        postedDate: new Date()
+                    }
+                    console.log(taskDetails);
+                    // save task information to the database
+                    // fetch('http://localhost:5000/myTasks', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'content-type': 'application/json',
+                    //     },
+                    //     body: JSON.stringify(taskDetails)
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(result => {
+                    //         console.log(result);
+                    //         setLoading(false);
+                    //         // toast.success("Product added successfully");
+                    //         navigate('/myTasks');
+                    //     })
+                }
+            })
     }
 
     return (
