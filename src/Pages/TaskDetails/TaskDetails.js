@@ -27,10 +27,10 @@ const TaskDetails = () => {
                         <span className='flex items-center'>
                             <span className='font-semibold text-sm'>Posted on:</span>&nbsp;
                             {/* < />&#160;Date:{taskDetails?.postedDate} */}
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 flex items-center">
+                            <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 flex items-center">
                                 <MdDateRange />&nbsp;{taskDetails?.postedDate.slice(2, -14)}&nbsp;&nbsp;
                             </span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 flex items-center">
+                            <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 flex items-center">
                                 <BiTime />&nbsp;{taskDetails?.postedDate.slice(11, -5)}
                             </span>
                         </span>
@@ -38,8 +38,8 @@ const TaskDetails = () => {
                             <MdIncompleteCircle />&#160;<span className='font-semibold text-sm'>Status:</span>&#160;
                             {
                                 taskDetails?.completed
-                                    ? <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Completed</span>
-                                    : <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Not Complete</span>
+                                    ? <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Completed</span>
+                                    : <span className="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Not Complete</span>
                             }
                         </span>
                     </div>

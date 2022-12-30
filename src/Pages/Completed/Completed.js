@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ImCross } from 'react-icons/im';
+import { FaPlus } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
+import { MdNoteAlt } from 'react-icons/md';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 const Completed = () => {
     const { user } = useContext(AuthContext);
+    const [showModal, setShowModal] = React.useState(false);
+    const [selectedTask, setSelectedTask] = useState([]);
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
     //api to get products by user email
     const { data: myTasks = [], refetch } = useQuery({
@@ -30,6 +36,32 @@ const Completed = () => {
                 if (data.deletedCount > 0) {
                     refetch();
                     toast.success("Task deleted successfully")
+                }
+            })
+    }
+
+    //function to handle modal (to be able to send selected task data to modal and to show modal)
+    const handleOpenModal = task => {
+        setShowModal(true);
+        setSelectedTask(task);
+    }
+
+    //function to add note (in modal)
+    const handleAddNote = data => {
+        console.log(data)
+        fetch(`http://localhost:5000/myTasks/note/${selectedTask._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    setShowModal(false);
+                    refetch();
+                    toast.success("Task note added successfully")
                 }
             })
     }
@@ -66,14 +98,76 @@ const Completed = () => {
                                         </button>
                                     </Link>
                                 </div>
-                                {/* comment section  */}
-                                <div className=' bg-gray-200 p-4 text-center mt-2'>
-                                    <h1 className='text-sm font-semibold text-gray-400'>Comment Section</h1>
-                                </div>
+                                {/* note section  */}
+                                {
+                                    task?.taskNote
+                                        ? <div className="p-2 my-2 text-sm text-indigo-700 bg-indigo-100 rounded-lg dark:bg-indigo-200 dark:text-indigo-800" role="alert">
+                                            <p className="font-semibold flex items-center mb-1"><MdNoteAlt />&#160;Note:</p>
+                                            {task?.taskNote}
+                                        </div>
+                                        : <div className='flex items-center pt-4'>
+                                            <div className=' bg-gray-200 p-4 text-center cursor-pointer rounded-lg w-full mt-auto'>
+                                                <h1 onClick={() => handleOpenModal(task)}
+                                                    className='text-sm font-semibold text-gray-400 flex items-center justify-center'>
+                                                    <FaPlus />&#160;Add Note
+                                                </h1>
+                                            </div>
+                                        </div>
+                                }
                             </div>)
                     }
                 </div>
             </div>
+            {/* modal  */}
+            <>
+
+                {showModal ? (
+                    <>
+                        <div
+                            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                        >
+                            <div className="relative w-auto my-2 mx-auto lg:w-1/2">
+                                {/*content*/}
+                                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                    {/*header*/}
+                                    <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                                        <h3 className="text-3xl font-semibold">
+                                            add Note
+                                        </h3>
+                                    </div>
+                                    {/*body*/}
+                                    <div className="relative p-6 flex-auto">
+
+                                        <form onSubmit={handleSubmit(handleAddNote)}>
+                                            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+                                            <textarea
+                                                {...register("taskNote", { required: "Note must be filled or press 'Cancel'" })}
+                                                id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                                            {errors.taskNote && <p className="text-red-500 text-xs" role="alert">{errors.taskNote?.message}</p>}
+                                            <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                                <button
+                                                    className="text-orange-400 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                    type="button"
+                                                    onClick={() => setShowModal(false)}
+                                                >
+                                                    Cancel
+                                                </button>
+                                                <button
+                                                    className="bg-orange-400 text-white active:bg-orange-400 py-2 px-3 text-sm font-medium text-center rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                                                    type="Submit"
+                                                >
+                                                    Add Note
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backdrop-blur-sm fixed inset-0 z-40 bg-black/25"></div>
+                    </>
+                ) : null}
+            </>
         </div>
     );
 };
