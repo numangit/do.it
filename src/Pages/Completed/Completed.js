@@ -1,3 +1,4 @@
+// import Lottie from "lottie-react";
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ImCross } from 'react-icons/im';
@@ -9,12 +10,14 @@ import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import Loader from '../../Components/Loader';
+// import empty from "../../assets/131552-empty.json";
 
 const Completed = () => {
     const { user } = useContext(AuthContext);
     const [showModal, setShowModal] = React.useState(false);
     const [selectedTask, setSelectedTask] = useState([]);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    // const [completeTask, setCompleteTask] = useState(false);
 
     //api to get products by user email
     const { data: myTasks = [], isLoading, refetch } = useQuery({
@@ -26,6 +29,15 @@ const Completed = () => {
             return data;
         }
     })
+
+    //function to check if there are any completed task in the array
+    // myTasks?.forEach(function (task) {
+    //     if (task.completed) {
+    //         setCompleteTask(true)
+    //         return;
+    //     }
+    //     return;
+    // });
 
     //function to delete task
     const handleDeleteTask = id => {
@@ -70,6 +82,8 @@ const Completed = () => {
     return (
         <div className='mt-20 lg:h-screen '>
             <div>
+                {/* {
+                    (myTasks?.lenght > 0 && !completeTask && !isLoading) ? */}
                 <h1 className='text-2xl text-center p-4'>
                     <span className='text-amber-500 font-semibold'>Completed</span>
                     {
@@ -78,11 +92,18 @@ const Completed = () => {
                             : " task."
                     }
                 </h1>
+                {/* : <div className='w-4/5 lg:w-1/4 mx-auto lg:my-0 lg:py-0'>
+                    <Lottie animationData={empty} loop={true} />
+                            <h1 className="font-semibold text-slate-400 text-xl text-center">No tasks has been completed!</h1>
+                        </div>
+                } */}
+
 
                 {/* show loader  */}
                 {
                     isLoading && <Loader></Loader>
                 }
+
 
                 {/* card */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 p-5 lg:p-10'>

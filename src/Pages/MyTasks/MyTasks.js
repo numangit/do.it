@@ -1,3 +1,4 @@
+import Lottie from "lottie-react";
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GrEdit } from 'react-icons/gr';
@@ -8,7 +9,8 @@ import { GoCheck } from 'react-icons/go';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import Loader from '../../Components/Loader';
+// import Loader from '../../Components/Loader';
+import empty from "../../assets/131552-empty.json";
 
 const MyTasks = () => {
     const { user } = useContext(AuthContext);
@@ -55,18 +57,36 @@ const MyTasks = () => {
     return (
         <div className='mt-20 lg:h-screen '>
             <div>
-                <h1 className='text-2xl text-center p-4'>
-                    <span className='text-amber-500 font-semibold'>Manage</span> your
-                    {
-                        myTasks?.length > 0
-                            ? " tasks."
-                            : " task."
-                    }
-                </h1>
 
-                {/* show loader  */}
+                {/* show loader 
                 {
                     isLoading && <Loader></Loader>
+                } */}
+
+                {
+                    (myTasks?.length > 0 && !isLoading)
+                        ? <h1 className='text-2xl text-center p-4'>
+                            <span className='text-amber-500 font-semibold'>Manage</span> your
+                            {
+                                myTasks?.length > 0
+                                    ? " tasks."
+                                    : " task."
+                            }
+                        </h1>
+                        : <div className='w-full'>
+                            <div className='w-4/5 lg:w-1/4 mx-auto lg:my-0 lg:py-0'>
+                                <Lottie animationData={empty} loop={true} />
+                            </div>
+                            <h1 className="font-semibold text-slate-400 text-xl text-center my-2">
+                                Oh no! <br className="" /> You have not added any task.
+                            </h1>
+                            <div className="flex justify-center text-center w-full">
+                                <Link to="/addTask" className="mx-auto w-full">
+                                    <button type="button"
+                                        class="mx-auto text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2">Add Task</button>
+                                </Link>
+                            </div>
+                        </div>
                 }
 
                 {/* card */}

@@ -93,8 +93,8 @@ const AddTask = () => {
                                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Upload Photo</label>
                                     <input
                                         {...register("taskImage", { required: "Photo is Required" })}
-                                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
-                                    {errors.taskImage && <p className='text-red-500 text-xs'>{errors.taskImage.message}</p>}
+                                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" required />
+                                    {errors.taskImage && <p className="text-red-500 text-xs" role="alert">{errors.taskImage?.message}</p>}
                                 </div>
                             </div>
                             {/* description */}
