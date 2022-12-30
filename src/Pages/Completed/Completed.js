@@ -130,30 +130,30 @@ const Completed = () => {
                                 {/*content*/}
                                 <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                     {/*header*/}
-                                    <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                                        <h3 className="text-3xl font-semibold">
-                                            add Note
+                                    {/* <div className="flex items-start justify-between p-3 border-solid border-slate-200 rounded-t">
+                                        <h3 className="text-2xl font-semibold">
+                                            Add Note
                                         </h3>
-                                    </div>
+                                    </div> */}
                                     {/*body*/}
-                                    <div className="relative p-6 flex-auto">
+                                    <div className="relative p-3 flex-auto">
 
                                         <form onSubmit={handleSubmit(handleAddNote)}>
-                                            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+                                            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add your note</label>
                                             <textarea
                                                 {...register("taskNote", { required: "Note must be filled or press 'Cancel'" })}
-                                                id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                                                id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
                                             {errors.taskNote && <p className="text-red-500 text-xs" role="alert">{errors.taskNote?.message}</p>}
-                                            <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                            <div className="flex items-center justify-end p-2 border-t border-solid border-slate-200 rounded-b">
                                                 <button
-                                                    className="text-orange-400 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                    className="text-indigo-800 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                     type="button"
                                                     onClick={() => setShowModal(false)}
                                                 >
                                                     Cancel
                                                 </button>
                                                 <button
-                                                    className="bg-orange-400 text-white active:bg-orange-400 py-2 px-3 text-sm font-medium text-center rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                                                    className="bg-indigo-800 text-white active:bg-indigo-800 py-2 px-3 text-sm font-medium text-center rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-800 dark:bg-indigo-800 dark:hover:bg-indigo-800 dark:focus:ring-indigo-800"
                                                     type="Submit"
                                                 >
                                                     Add Note
