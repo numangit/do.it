@@ -13,7 +13,7 @@ const Update = () => {
 
     //function to handle form submit  
     const handleAddTask = data => {
-        console.log(data)
+        // console.log(data)
         setLoading(true);
         fetch(`https://do-it-server.vercel.app/myTasks/${taskDetails._id}`, {
             method: 'PATCH',

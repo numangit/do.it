@@ -21,12 +21,12 @@ const Signin = () => {
 
     //form submit function to handle email login
     const handleLogin = data => {
-        console.log(data)
+        // console.log(data)
         setLoginError('');
         signIn(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                // const user = result.user;
+                // console.log(user);
                 // toast.success('welcome back');
                 navigate(from, { replace: true });
             })

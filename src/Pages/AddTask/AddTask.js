@@ -20,7 +20,7 @@ const AddTask = () => {
 
     //function to handle form submit  
     const handleAddTask = data => {
-        console.log(data)
+        // console.log(data)
         setLoading(true)
         // setFormError('');
         //get image data from form and upload to image bb
@@ -36,7 +36,7 @@ const AddTask = () => {
             .then(imgData => {
                 //sending the data from form to end point to save the data in data base
                 if (imgData.success) {
-                    console.log(imgData.data.url);
+                    // console.log(imgData.data.url);
                     const taskDetails = {
                         taskImage: imgData.data.url,
                         taskName: data.taskName,
@@ -45,7 +45,7 @@ const AddTask = () => {
                         completed: false,
                         postedDate: new Date()
                     }
-                    console.log(taskDetails);
+                    // console.log(taskDetails);
                     // save task information to the database
                     fetch('https://do-it-server.vercel.app/myTasks', {
                         method: 'POST',
@@ -56,7 +56,7 @@ const AddTask = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result);
+                            // console.log(result);
                             setLoading(false);
                             toast.success("Task added successfully");
                             navigate('/myTasks');

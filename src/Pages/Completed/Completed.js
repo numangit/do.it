@@ -8,6 +8,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
+import Loader from '../../Components/Loader';
 
 const Completed = () => {
     const { user } = useContext(AuthContext);
@@ -16,12 +17,12 @@ const Completed = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     //api to get products by user email
-    const { data: myTasks = [], refetch } = useQuery({
+    const { data: myTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['myTasks', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://do-it-server.vercel.app/myTasks?email=${user?.email}`);
             const data = await res.json();
-            console.log(data)
+            // console.log(data)
             return data;
         }
     })
@@ -48,7 +49,7 @@ const Completed = () => {
 
     //function to add note (in modal)
     const handleAddNote = data => {
-        console.log(data)
+        // console.log(data)
         fetch(`https://do-it-server.vercel.app/myTasks/note/${selectedTask._id}`, {
             method: 'PATCH',
             headers: {
@@ -69,6 +70,20 @@ const Completed = () => {
     return (
         <div className='mt-20 lg:h-screen '>
             <div>
+                <h1 className='text-2xl text-center p-4'>
+                    <span className='text-amber-500 font-semibold'>Completed</span>
+                    {
+                        myTasks?.length > 0
+                            ? " tasks."
+                            : " task."
+                    }
+                </h1>
+
+                {/* show loader  */}
+                {
+                    isLoading && <Loader></Loader>
+                }
+
                 {/* card */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 p-5 lg:p-10'>
                     {

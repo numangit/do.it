@@ -8,17 +8,18 @@ import { GoCheck } from 'react-icons/go';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+import Loader from '../../Components/Loader';
 
 const MyTasks = () => {
     const { user } = useContext(AuthContext);
 
     //api to get products by user email
-    const { data: myTasks = [], refetch } = useQuery({
+    const { data: myTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['myTasks', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://do-it-server.vercel.app/myTasks?email=${user?.email}`);
             const data = await res.json();
-            console.log(data)
+            // console.log(data)
             return data;
         }
     })
@@ -62,6 +63,12 @@ const MyTasks = () => {
                             : " task."
                     }
                 </h1>
+
+                {/* show loader  */}
+                {
+                    isLoading && <Loader></Loader>
+                }
+
                 {/* card */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 lg:p-10'>
                     {
