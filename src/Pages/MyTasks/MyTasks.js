@@ -78,7 +78,7 @@ const MyTasks = () => {
                                 <Lottie animationData={empty} loop={true} />
                             </div>
                             <h1 className="font-semibold text-slate-400 text-xl text-center my-2">
-                                Oh no! <br className="" /> You have not added any task.
+                                You have not added any task.
                             </h1>
                             <div className="flex justify-center text-center w-full">
                                 <Link to="/addTask" className="mx-auto w-full">
