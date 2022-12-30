@@ -106,9 +106,9 @@ const Completed = () => {
                                             {task?.taskNote}
                                         </div>
                                         : <div className='flex items-center pt-4'>
-                                            <div className=' bg-gray-200 p-4 text-center cursor-pointer rounded-lg w-full mt-auto'>
+                                            <div className='hover:bg-slate-50 hover:text-gray-400 hover:shadow-sm bg-gray-200 text-center cursor-pointer rounded-lg w-full mt-auto'>
                                                 <h1 onClick={() => handleOpenModal(task)}
-                                                    className='text-sm font-semibold text-gray-400 flex items-center justify-center'>
+                                                    className='text-sm font-semibold hover:text-gray-500 p-4  text-gray-400 flex items-center justify-center'>
                                                     <FaPlus />&#160;Add Note
                                                 </h1>
                                             </div>
