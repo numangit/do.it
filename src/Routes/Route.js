@@ -42,12 +42,12 @@ const router = createBrowserRouter([
             {
                 path: '/taskDetails/:id',
                 element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myTask/${params.id}`)
+                loader: ({ params }) => fetch(`https://do-it-server.vercel.app/myTask/${params.id}`)
             },
             {
                 path: '/myTasks/edit/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myTask/${params.id}`)
+                loader: ({ params }) => fetch(`https://do-it-server.vercel.app/myTask/${params.id}`)
             }
 
         ]

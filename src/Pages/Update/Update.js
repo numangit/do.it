@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const Update = () => {
     const taskDetails = useLoaderData();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
 
     //function to handle form submit  
     const handleAddTask = data => {
         console.log(data)
         setLoading(true);
-        fetch(`http://localhost:5000/myTasks/${taskDetails._id}`, {
+        fetch(`https://do-it-server.vercel.app/myTasks/${taskDetails._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -25,6 +27,7 @@ const Update = () => {
                 if (data.modifiedCount > 0) {
                     setLoading(false);
                     toast.success("Task updated successfully")
+                    navigate('/myTasks');
                 }
             })
 

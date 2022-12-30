@@ -5,6 +5,7 @@ import { FcInfo } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ThreeDots } from 'react-loader-spinner';
+import { toast } from 'react-hot-toast';
 
 
 const AddTask = () => {
@@ -46,7 +47,7 @@ const AddTask = () => {
                     }
                     console.log(taskDetails);
                     // save task information to the database
-                    fetch('http://localhost:5000/myTasks', {
+                    fetch('https://do-it-server.vercel.app/myTasks', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -57,7 +58,7 @@ const AddTask = () => {
                         .then(result => {
                             console.log(result);
                             setLoading(false);
-                            // toast.success("Product added successfully");
+                            toast.success("Task added successfully");
                             navigate('/myTasks');
                         })
                 }

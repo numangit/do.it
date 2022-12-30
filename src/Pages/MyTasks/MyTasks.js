@@ -16,7 +16,7 @@ const MyTasks = () => {
     const { data: myTasks = [], refetch } = useQuery({
         queryKey: ['myTasks', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myTasks?email=${user?.email}`);
+            const res = await fetch(`https://do-it-server.vercel.app/myTasks?email=${user?.email}`);
             const data = await res.json();
             console.log(data)
             return data;
@@ -25,7 +25,7 @@ const MyTasks = () => {
 
     //function to complete task
     const handleTaskComplete = (id) => {
-        fetch(`http://localhost:5000/myTasks/completed/${id}`, {
+        fetch(`https://do-it-server.vercel.app/myTasks/completed/${id}`, {
             method: 'PUT',
         })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const MyTasks = () => {
 
     //function to delete task
     const handleDeleteTask = id => {
-        fetch(`http://localhost:5000/myTasks/${id}`, {
+        fetch(`https://do-it-server.vercel.app/myTasks/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
