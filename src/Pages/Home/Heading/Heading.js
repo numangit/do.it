@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Heading = () => {
   return (
-    <div className='mt-16 lg:h-screen'>
+    <div className="mt-16 lg:h-screen bg-cover 
+    bg-[url('/src/assets/pexels-nataliya-vaitkevich-6863329.jpg')]">
       <div className='md:w-5/6 mx-auto py-32 text-center'>
         <h1 className='text-2xl md:text-6xl mb-6'>Organize your work and projects with our organization tools</h1>
         <div>
