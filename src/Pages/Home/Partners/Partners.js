@@ -2,10 +2,9 @@ import React from 'react';
 
 const Partners = () => {
   return (
-
     <div className="max-w-screen-xl mx-auto mt-10 container text-center mb-12">
       <div className="mx-2 md:mx-0 container flex flex-col items-center py-4 md:p-4 md:px-12">
-        <h1 className="text-3xl font-semibold leading-none text-center">Our Partners</h1>
+        <h1 className="text-3xl font-semibold leading-none text-center lg:text-4xl">Our Partners</h1>
       </div>
       <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
         <div className="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
@@ -25,7 +24,6 @@ const Partners = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
