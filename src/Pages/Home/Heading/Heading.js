@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Heading = () => {
   return (
-    <div className="mt-16 lg:h-screen bg-cover 
+    <div className=" container mx-auto mt-16 lg:h-5/6 bg-cover 
     bg-[url('https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
       <div className='md:w-5/6 mx-auto py-32 text-center'>
         <h1 className='text-2xl md:text-6xl mb-6 text-slate-50 font-semibold'>Organize your work and projects with our organization tools</h1>
