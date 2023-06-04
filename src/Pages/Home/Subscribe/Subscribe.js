@@ -2,7 +2,7 @@ import React from 'react';
 
 const Subscribe = () => {
   return (
-    <div className='bg-slate-800 pattern'>
+    <div className='container mx-auto bg-slate-800 pattern'>
       <div className="container px-6 py-16 mx-auto text-center">
         <div className="max-w-lg mx-auto">
           <h1 className="text-3xl font-semibold text-white lg:text-4xl">Create beautiful website layout with Meraki UI.</h1>
