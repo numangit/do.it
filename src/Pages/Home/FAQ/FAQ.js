@@ -49,7 +49,7 @@ const FAQ = () => {
               <h1 class="text-xl font-semibold text-gray-700 dark:text-white">How much is Do.it?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Do.it has 3 membership plans: <strong>FREE</strong>, <strong>STANDARD</strong> and <strong>ENTERPRISE</strong>. Please note that all of our plans are flat-rate, which means you can keep adding more and more users within your plan limit and still pay the same amount of money per month.
+                Do.it has 3 membership plans: <strong>FREE</strong>, <strong>PREMIUM</strong> and <strong>ENTERPRISE</strong>. Please note that all of our plans are flat-rate, which means you can keep adding more and more users within your plan limit and still pay the same amount of money per month.
               </p>
             </div>
           </div>
