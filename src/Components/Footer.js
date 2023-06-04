@@ -14,28 +14,16 @@ const Footer = () => {
                 </Link>
 
                 <div class="flex flex-wrap items-center justify-center gap-4 mt-6 lg:gap-6 lg:mt-0">
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Overview
-                    </a>
+                    {
+                        user?.uid &&
+                        <>
+                            <Link to="/" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm text-sm">Home</Link>
+                            <Link to="/addTask" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm">Add Task</Link>
+                            <Link to="/myTasks" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm">My Tasks</Link>
+                            <Link to="/completed" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm">Completed</Link>
 
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Features
-                    </a>
-
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Pricing
-                    </a>
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Careers
-                    </a>
-
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Help
-                    </a>
-
-                    <a href="#" class="text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400">
-                        Privacy
-                    </a>
+                        </>
+                    }
                 </div>
 
                 <p class="mt-6 text-sm text-gray-500 lg:mt-0 dark:text-gray-400">© Copyright 2023 Meraki UI. </p>
