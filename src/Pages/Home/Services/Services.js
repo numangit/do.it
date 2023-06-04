@@ -2,8 +2,8 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className="bg-white dark:bg-gray-900 mt-10">
-      <div className="mx-2 md:mx-0 container flex flex-col items-center py-4 md:p-4 md:px-12">
+    <section className="container mx-auto bg-white dark:bg-gray-900 mt-10">
+      <div className="md:mx-0  flex flex-col items-center py-4 md:p-4 md:px-12">
         <h1 className="text-3xl font-semibold leading-none text-center lg:text-4xl">What do we offer?</h1>
         <p className="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quas magni libero consequuntur voluptatum velit amet id repudiandae ea, deleniti laborum in neque eveniet.
