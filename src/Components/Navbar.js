@@ -27,10 +27,10 @@ const Navbar = () => {
                         {
                             user?.uid
                                 ? <Link to="/">
-                                    <button onClick={handleLogOut} type="button" className="text-white bg-black hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700">Sign Out</button>
+                                    <button onClick={handleLogOut} type="button" className="text-white bg-orange-500 hover:bg-orange-700 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700">Sign Out</button>
                                 </Link>
                                 : <Link to="/signin">
-                                    <button type="button" className="text-white bg-black hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700">Sign In</button>
+                                    <button type="button" className="text-white bg-orange-600 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700">Sign In</button>
                                 </Link>
                         }
 
@@ -41,9 +41,6 @@ const Navbar = () => {
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            {/* <li>
-                                <Link to="/" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</Link>
-                            </li> */}
                             {
                                 user?.uid &&
                                 <>
