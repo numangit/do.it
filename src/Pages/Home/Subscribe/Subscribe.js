@@ -2,11 +2,11 @@ import React from 'react';
 
 const Subscribe = () => {
   return (
-    <>
+    <div className='bg-slate-800 pattern'>
       <div className="container px-6 py-16 mx-auto text-center">
         <div className="max-w-lg mx-auto">
-          <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Create beautiful website layout with Meraki UI.</h1>
-          <p className="mt-6 text-gray-500 dark:text-gray-300">
+          <h1 className="text-3xl font-semibold text-white lg:text-4xl">Create beautiful website layout with Meraki UI.</h1>
+          <p className="mt-6 text-gray-300">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero similique obcaecati illum mollitia.
           </p>
           <div className="w-full max-w-sm mx-auto mt-6 bg-transparent border rounded-md dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-300 focus-within:ring-opacity-40">
@@ -19,7 +19,7 @@ const Subscribe = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
