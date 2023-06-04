@@ -8,6 +8,7 @@ import Plans from './Plans/Plans';
 import Higlights from './Higlights/Higlights';
 import FAQ from './FAQ/FAQ';
 import Team from './Team/Team';
+import Stats from './Stats/Stats';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Heading></Heading>
             <Services></Services>
             <Higlights></Higlights>
+            <Stats></Stats>
             <Plans></Plans>
             <Testimonial></Testimonial>
             <Team></Team>
