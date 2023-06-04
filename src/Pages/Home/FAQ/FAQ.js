@@ -15,10 +15,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What can i expect at my first consultation?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What is Do.it?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                Do.it is an online workspace designed for sales, marketing, project management, and other activities. It features CRM, tasks, chats, online meetings, and 30+ more tools.
               </p>
             </div>
           </div>
@@ -31,10 +31,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are your opening house?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">How to get started?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                To create an account, all you need to do is enter your email address, confirm it, and that’s it! Your Do.it account is ready to use.
               </p>
             </div>
           </div>
@@ -47,10 +47,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">Do i need a referral?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">How much is Do.it?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                Do.it has 3 membership plans: <strong>FREE</strong>, <strong>STANDARD</strong> and <strong>ENTERPRISE</strong>. Please note that all of our plans are flat-rate, which means you can keep adding more and more users within your plan limit and still pay the same amount of money per month.
               </p>
             </div>
           </div>
@@ -63,10 +63,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">Is the cost of the appoinment covered by private health insurance?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What devices can I use Do.it on?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                You can use Bitrix24 in any browser, as a desktop app (for Windows or Mac), or as a mobile app (for iOS or Android).
               </p>
             </div>
           </div>
@@ -79,10 +79,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What is your cancellation policy?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">Will my data be safe with Do.it?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                As safe as can be. Do.it stores data in 4 data centers and 100 servers in North America and Europe, depending on the country you are in. All of our data collecting and handling procedures are fully GDPR-compliant.
               </p>
             </div>
           </div>
@@ -95,10 +95,10 @@ const FAQ = () => {
             </div>
 
             <div>
-              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are the parking and public transport options?</h1>
+              <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are the access levels in Do.it?</h1>
 
               <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat, consequatur eveniet veritatis quos dignissimos beatae dolores exercitationem laboriosam officia magnam atque blanditiis illum doloremque magni ex corrupti tempora quis.
+                Here they are: <strong>Employee/user</strong>,<strong>Head of a department</strong>, <strong>Administrator</strong> and <strong>Extranet user</strong>.
               </p>
             </div>
           </div>
