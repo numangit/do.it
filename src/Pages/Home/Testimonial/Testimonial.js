@@ -20,16 +20,6 @@ export default function Testimonial() {
             <div className="mb-2">
               <a
                 href="/"
-                className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                aria-label="Category"
-                title="Delevopment"
-              >
-                Delevopment
-              </a>
-            </div>
-            <div className="mb-2">
-              <a
-                href="/"
                 aria-label="Article"
                 className="inline-block text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
@@ -55,10 +45,10 @@ export default function Testimonial() {
                   title="Author"
                   className="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                  Petru Vîrtos
+                  Pestro Gale
                 </a>
                 <p className="text-sm font-medium leading-4 text-gray-600">
-                  Author
+                  Product Manager
                 </p>
               </div>
             </div>
@@ -74,16 +64,6 @@ export default function Testimonial() {
             </div>
           </div>
           <div>
-            <div className="mb-2">
-              <a
-                href="/"
-                className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                aria-label="Category"
-                title="Food &amp; Snacks"
-              >
-                Food &amp; Snacks
-              </a>
-            </div>
             <div className="mb-2">
               <a
                 href="/"
@@ -131,16 +111,6 @@ export default function Testimonial() {
             </div>
           </div>
           <div>
-            <div className="mb-2">
-              <a
-                href="/"
-                className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                aria-label="Category"
-                title="Out of this world"
-              >
-                Out of this world
-              </a>
-            </div>
             <div className="mb-2">
               <a
                 href="/"
