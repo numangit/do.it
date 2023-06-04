@@ -5,6 +5,9 @@ const Services = () => {
     <section className="bg-white dark:bg-gray-900 mt-10">
       <div className="mx-2 md:mx-0 container flex flex-col items-center py-4 md:p-4 md:px-12">
         <h1 className="text-3xl font-semibold leading-none text-center lg:text-4xl">Our Services</h1>
+        <p className="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quas magni libero consequuntur voluptatum velit amet id repudiandae ea, deleniti laborum in neque eveniet.
+        </p>
       </div>
       <div className="container px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
