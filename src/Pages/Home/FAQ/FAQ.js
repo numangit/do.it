@@ -4,8 +4,7 @@ const FAQ = () => {
   return (
     <section class="bg-white dark:bg-gray-900">
       <div class="container px-6 py-12 mx-auto">
-        <h1 class="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">Frequently asked questions.</h1>
-
+        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Frequently Asked Questions</h1>
         <div class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3">
           <div>
             <div class="inline-block p-3 text-white bg-orange-500 rounded-lg">
