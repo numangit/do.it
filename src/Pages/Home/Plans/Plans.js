@@ -4,9 +4,9 @@ const Plans = () => {
   return (
     <div className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-8 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Pricing Plan</h1>
+        <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize dark:text-white lg:text-4xl">Pricing Plan</h1>
         <p className="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300">
-          Our price plan is perfect for anyone who wants to save money on their wireless bill. With our plan, you can stay connected without breaking the bank. Plus, our customer service is top-notch, so you can always get help when you need it.
+          Our price plan is perfect for anyone who wants to save money on their wireless bill. With our plan, you can stay connected without breaking the bank.
         </p>
         <div className="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div className="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700">
