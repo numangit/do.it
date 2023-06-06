@@ -6,7 +6,7 @@ export default function Testimonial() {
       <div className="mx-2 md:mx-0 container flex flex-col items-center pb-6 mb-4 md:p-10 md:px-12">
         <h1 className="text-3xl font-semibold leading-none text-center lg:text-4xl">What our customers are saying about us</h1>
         <p className="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quas magni libero consequuntur voluptatum velit amet id repudiandae ea, deleniti laborum in neque eveniet.
+          Find out what our app users say about us. We have around 100+ users.
         </p>
       </div>
       <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
@@ -26,12 +26,11 @@ export default function Testimonial() {
                 aria-label="Article"
                 className="inline-block text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Why I love Laravel
+                Amazing
               </a>
             </div>
             <p className="mb-5 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed quia
-              consequuntur magni voluptatem doloremque.
+              This tool has been extremely useful for my daily routine and it helped me keep up with my schedule.
             </p>
             <div className="flex items-center">
               <a href="/" aria-label="Author" title="Author" className="mr-3">
@@ -73,12 +72,11 @@ export default function Testimonial() {
                 aria-label="Article"
                 className="inline-block text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Pizza, you should try it
+                Helpful, its a must try
               </a>
             </div>
             <p className="mb-5 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed quia
-              consequuntur magni voluptatem doloremque.
+              I'm so glad I found this tool! It has made my life so much easier by helping me keep track of my tasks and deadlines.
             </p>
             <div className="flex items-center">
               <a href="/" aria-label="Author" title="Author" className="mr-3">
@@ -120,12 +118,11 @@ export default function Testimonial() {
                 aria-label="Article"
                 className="inline-block text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Whatever, just feed me
+                I love it!
               </a>
             </div>
             <p className="mb-5 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed quia
-              consequuntur magni voluptatem doloremque.
+              This tool has given me peace of mind and allowed me to focus on the things that are important to me.
             </p>
             <div className="flex items-center">
               <a href="/" aria-label="Author" title="Author" className="mr-3">
@@ -145,7 +142,7 @@ export default function Testimonial() {
                   Susie the Cat
                 </a>
                 <p className="text-sm font-medium leading-4 text-gray-600">
-                  Author
+                  Doctor
                 </p>
               </div>
             </div>
