@@ -21,15 +21,12 @@ const Stats = () => {
             </svg>
           </div>
           <h3 className="text-4xl font-extrabold sm:text-5xl xl:text-6xl">
-            9 312 435
+            312 435
           </h3>
         </div>
         <div className="lg:w-1/2">
           <p className="text-gray-800">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+            We are thrilled to announce that we have reached the milestone of 300,000 users! We are grateful for the support of our community, and we are committed to providing them with the best possible experience.
           </p>
         </div>
       </div>
